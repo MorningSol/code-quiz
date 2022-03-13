@@ -6,39 +6,63 @@ var question2El = document.querySelector("#question2");
 var question3El = document.querySelector("#question3");
 var question4El = document.querySelector("#question4");
 var allQuestions = document.querySelectorAll(".quiz-box");
-var buttonSelectorEl = document.querySelector("#main");
+var buttonQuestion1El = document.querySelector("#btn-question1");
+var buttonQuestion2El = document.querySelector("#btn-question2");
+var buttonQuestion3El = document.querySelector("#btn-question3");
+var buttonQuestion4El = document.querySelector("#btn-question4");
 var answerFeedback = document.querySelectorAll(".result")
 var timeLeft = 0;
+var x = 0;
 
+var nextQuestion = function() {
 
+    if (question1El.style.display = "flex"){
+        question1El.style.display = "none";
+        question2El.style.display = "flex";
+    }
+    else if (question2El.style.display = "flex") {
+        question2El.style.display = "none";
+        question3El.style.display = "flex";
+    }
+    else if (question3El.style.display = "flex") {
+        question3El.style.display = "none";
+        question4El.style.display = "flex";
+    }
+    else{
+        console.log("out of questions")
+    }   
+};
 
 var taskButtonHandler = function(event){
     var choiceEl = event.target;
-    var x = 0
-
+    
     if (choiceEl.matches(".correct")){
         console.log("correct")
         answerFeedback[x].textContent = "CORRECT!";
-                  
+        x++   
     };
     if (choiceEl.matches(".wrong")){
         console.log("wrong")
         answerFeedback[x].textContent = "INCORRECT!";
+        x++
+        timeLeft -= 10;
     };
-    x++
+
+    var delay = setTimeout(function() {nextQuestion()},1000);
 };
 
 
 var countdown = function(){
-    var TimeLeft = 75;
-    timerEl.textContent = TimeLeft
+    timeLeft = 75;
+    timerEl.textContent = timeLeft
 
     var timerInterval = setInterval(function() {
-        timerEl.textContent = TimeLeft--;
+        timerEl.textContent = timeLeft--;
 
-        if (TimeLeft <0) {
+        if (timeLeft <0) {
             clearInterval(timerInterval);
             gameOver()
+            
         } 
     }, 1000);
 };
@@ -66,4 +90,7 @@ var gameOver = function() {
 
 
 startButtonEl.addEventListener("click", startQuiz);
-buttonSelectorEl.addEventListener("click", taskButtonHandler);
+buttonQuestion1El.addEventListener("click", taskButtonHandler);
+buttonQuestion2El.addEventListener("click", taskButtonHandler);
+buttonQuestion3El.addEventListener("click", taskButtonHandler);
+buttonQuestion4El.addEventListener("click", taskButtonHandler);
