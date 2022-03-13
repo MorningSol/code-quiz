@@ -25,40 +25,67 @@ header {
 }
 
 .main-box {
-    
+    display: flex;
+    flex-direction: column; 
+    align-items: center;  
+}
+
+.quiz-box {
     margin: 60px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    width: 60%;  
 }
 
 .question {
     font-size: 60px;
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
 }
 
 .instructions {
     font-size: 30px;
     text-align: center;
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
+    margin: 10px;  
 }
 
 .button-selection {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 }
+
 .btn {
     color: white;
     font-size: 30px;
     border-radius: 15px;
     padding: 10px 20px;
-    margin: 10px;
+    margin: 15px;
     background-color: blueviolet;
-   
-
+    text-align: left;
 }
 
+.button-align {
+    align-self: flex-start;  
+}
 
+.text-align {
+    text-align: left;
+    font-size: 40px;  
+}
+
+#question1 {
+    display: none;
+}
+#question2 {
+    display: none;
+}
+#question3 {
+    display: none;
+}
+#question4 {
+    display: none;
+}
