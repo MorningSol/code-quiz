@@ -13,24 +13,31 @@ var buttonQuestion4El = document.querySelector("#btn-question4");
 var answerFeedback = document.querySelectorAll(".result")
 var timeLeft = 0;
 var x = 0;
+var timerInterval;
 
 var nextQuestion = function() {
-
-    if (question1El.style.display = "flex"){
+    switch (x) {
+    case 0:
         question1El.style.display = "none";
         question2El.style.display = "flex";
-    }
-    else if (question2El.style.display = "flex") {
+        x++
+        break;
+    case 1: 
         question2El.style.display = "none";
         question3El.style.display = "flex";
-    }
-    else if (question3El.style.display = "flex") {
+        x++
+        break;
+        
+    case 2:
         question3El.style.display = "none";
         question4El.style.display = "flex";
-    }
-    else{
-        console.log("out of questions")
-    }   
+        x++
+        break;
+    case 3:
+        question4El.style.display = "none";
+        clearInterval(timerInterval)
+        
+    };             
 };
 
 var taskButtonHandler = function(event){
@@ -39,16 +46,16 @@ var taskButtonHandler = function(event){
     if (choiceEl.matches(".correct")){
         console.log("correct")
         answerFeedback[x].textContent = "CORRECT!";
-        x++   
+          
     };
     if (choiceEl.matches(".wrong")){
         console.log("wrong")
         answerFeedback[x].textContent = "INCORRECT!";
-        x++
+       
         timeLeft -= 10;
     };
-
-    var delay = setTimeout(function() {nextQuestion()},1000);
+    
+    setTimeout(function() {nextQuestion()},1000);
 };
 
 
@@ -56,7 +63,7 @@ var countdown = function(){
     timeLeft = 75;
     timerEl.textContent = timeLeft
 
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         timerEl.textContent = timeLeft--;
 
         if (timeLeft <0) {
@@ -72,6 +79,7 @@ var startQuiz = function() {
    
     quizStartSection.style.display = "none";
     question1El.style.display = "flex";
+    x = 0;
     countdown()
 };
 
