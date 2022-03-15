@@ -5,6 +5,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+  
 header {
     display: flex;
     flex-wrap: wrap;
@@ -13,7 +14,7 @@ header {
     margin-bottom: 120px;
 }
 
-.highscore {
+.highscores {
     padding: 20px;
     margin: 20px 40px;
     font-size: 20px;
@@ -41,9 +42,10 @@ header {
 
 .question {
     font-size: 60px;
-    padding: 10px;
+    padding: 20px;
     margin: 10px;
     text-align: center;
+    border-bottom: 3px solid rgb(143, 141, 141);
 }
 
 .instructions {
@@ -65,8 +67,11 @@ header {
     border-radius: 15px;
     padding: 10px 20px;
     margin: 15px;
-    background-color: blueviolet;
+    background-color: darkorchid;
     text-align: left;
+}
+.btn:hover {
+    background-color: rgb(126, 26, 175);
 }
 
 .button-align {
@@ -78,29 +83,9 @@ header {
     font-size: 40px;  
 }
 
-.result {
-    font-size: 50px;
-    margin-top: 20px;
-    border-top: 5px solid grey;
-    width: 100%;
-    text-align: center;
-}
-
-.quiz-results {
-    margin: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60%; 
-}
-.quiz-results h2 {
-    margin-bottom: 30px;
-}
 .player-info {
     text-align: center;
-    padding: 10px;
-    margin: 10px;
-    border-top: 3px solid rgb(143, 141, 141);
+    padding: 30px 10px 10px 10px;
 }
 .player-info h3{
     font-size: 45px;
@@ -117,32 +102,53 @@ header {
 
 .player-info input {
   padding: 10px;
-  font-size: 2.2rem;
+  font-size: 2rem;
   border-radius: 15px;
+}
+
+.result {
+    font-size: 50px;
+    margin-top: 20px;
+    border-top: 3px solid rgb(143, 141, 141);
+    width: 100%;
+    text-align: center;
+}
+
+.score-sheet {
+    padding: 10px;
+    margin: 10px;
+    background: rgb(185, 183, 183);
+    width: 60%;
+    font-size: 35px;  
+    list-style-position: inside;
 }
 
 #question1 {
     display: none;
 }
+
 #question2 {
     display: none;
 }
+
 #question3 {
     display: none;
 }
+
 #question4 {
     display: none;
 }
-#quiz-results {
+
+#results-page {
+    display:none;
+}  
+
+#highscore-page {
     display: none;
 }
+/* 
+#quiz-start {
+    display: none;
+}    */
 
-#submit-score {
-    color: white;
-    font-size: 35px;
-    border-radius: 15px;
-    padding: 10px;
-    margin: 5px;
-    background-color: blueviolet;
     
-}

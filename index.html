@@ -10,7 +10,7 @@
 <body>
 
     <header>
-        <div class="highscore" id="highscore">
+        <div class="highscores" id="highscore">
             <h2>View Highscore</h2>
         </div>
 
@@ -69,7 +69,7 @@
             <h3 class="result"></h3>
         </section>
 
-        <section class="quiz-box " id="question4">
+        <section class="quiz-box" id="question4">
             <h2 class="question text-align">
                 question 4Lorem ipsum dolor sit amet consectetur adipisicing elit. laborum placeat suscipit aperiam ab eveniet?
             </h2>
@@ -82,16 +82,29 @@
             <h3 class="result"></h3>
         </section>
 
-        <section class="quiz-results" id="quiz-results">
-            <h2 class="question">Congratulations for finishing the Code Quiz Challenge!</h2>
-            <div class="player-info">
-                <h3>Your final score is <span id="score">0</span> !</h3>
-                <label for="player-initials">Enter initials:</label>
-                <input type="text" name="player-initials" placeholder="AA" id="player-initials">
-                <input type="submit" value="Submit" id="submit-score">
-            </div>
+        <section class="quiz-box" id ="results-page">
+            <form class="quiz-results" id="quiz-results">
+                <h2 class="question">Congratulation for finishing <br> The Code Quiz Challenge!</h2>
+                <div class="player-info">
+                    <h3>Your final score is <span id="score">0</span> !</h3>
+                    <label for="player-initials">Enter initials:</label>
+                    <input type="text" name="player-initials" placeholder="AA" id="player-initials"> 
+                    <button class="btn" id="submit-score">Submit</button>
+                </div>
+            </form>
         </section>
 
+        <section class="quiz-box" id="highscore-page">
+            <h2 class="question">Highscores</h2>
+            
+            <ol class = "score-sheet" id="score-sheet">
+                
+            </ol>
+            <div>
+                <button class="btn">Back</button>
+                <button class="btn">Clear Highscores</button>
+            </div>
+        </section>
     </main>
 
 </body>
