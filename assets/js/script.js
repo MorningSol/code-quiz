@@ -56,16 +56,23 @@ var taskButtonHandler = function(event){
     if (choiceEl.matches(".correct")){
         console.log("correct")
         answerFeedback[questionProgression].textContent = "CORRECT!";
-          
+        setTimeout(function() {nextQuestion()},900);  
     };
     if (choiceEl.matches(".wrong")){
         console.log("wrong")
         answerFeedback[questionProgression].textContent = "INCORRECT!";
        
         timeLeft -= 10;
+        setTimeout(function() {nextQuestion()},900);
+    };
+    if (choiceEl.matches(".back")){
+        highscorePageEl.style.display = "none";
+        quizStartSection.style.display = "flex";
+    };
+    if (choiceEl.matches(".clear")){
+        deleteScores();
     };
     
-    setTimeout(function() {nextQuestion()},900);
 };
 
 
@@ -129,7 +136,7 @@ var scoreInfoHandler = function(event){
 createScoreInfoEl = function(playerInfoObj){
     var scoreListItem = document.createElement("li");
     scoreListItem.setAttribute("data-score-id", scoreIdCounter)
-
+    scoreListItem.className = "list-item";
     scoreListItem.innerHTML = playerInfoObj.initials + " - " + playerInfoObj.score
     scoreSheet.appendChild(scoreListItem);
 
@@ -162,6 +169,16 @@ var loadScores = function(){
 
 };
 
+var deleteScores = function(){
+    var deleteAll = document.querySelectorAll(".list-item")
+    console.log(deleteAll);
+    for (var i = 0; i < deleteAll.length; i++){
+        deleteAll[i].remove();
+    };
+    highscoreArr=[];
+    saveScores();
+};
+
 
 startButtonEl.addEventListener("click", startQuiz);
 buttonQuestion1El.addEventListener("click", taskButtonHandler);
@@ -169,5 +186,5 @@ buttonQuestion2El.addEventListener("click", taskButtonHandler);
 buttonQuestion3El.addEventListener("click", taskButtonHandler);
 buttonQuestion4El.addEventListener("click", taskButtonHandler);
 quizResultsEl.addEventListener("submit",scoreInfoHandler);
-
+highscorePageEl.addEventListener("click",taskButtonHandler);
 loadScores();
