@@ -1,6 +1,7 @@
 var startButtonEl = document.querySelector("#start-btn");
 var viewHighscoreEl = document.querySelector("#highscore")
 var timerEl = document.querySelector("#timer-time");
+var timeOut = document.querySelector("#timeout");
 var quizStartSection = document.querySelector("#quiz-start");
 var question1El = document.querySelector("#question1");
 var question2El = document.querySelector("#question2");
@@ -106,7 +107,7 @@ var startQuiz = function() {
     for (var i = 0; i < answerFeedback.length; i++){
         answerFeedback[i].textContent = "";
     };
-    
+
     countdown()
 };
 
@@ -115,9 +116,12 @@ var gameOver = function() {
     for (var i = 0; i < allQuestions.length; i++){
         allQuestions[i].style.display = "none"
     };
-
-    alert("You have run out of time and your score is 0.  Please try again")
+    timeOut.style.display = "flex"
+    
+    setTimeout(function(){ 
     quizStartSection.style.display = "flex";
+    timeOut.style.display = "none"
+    },4000);
 };
 
 var scoreInfoHandler = function(event){
@@ -139,7 +143,7 @@ var scoreInfoHandler = function(event){
     };
     quizResultsEl.style.display = "none";
     highscorePageEl.style.display = "flex";
-
+    timerEl.textContent = 0;
     createScoreInfoEl(playerInfoObj);
 };
 
@@ -152,13 +156,12 @@ createScoreInfoEl = function(playerInfoObj){
 
     playerInfoObj.id = scoreIdCounter;
     
-    
     highscoreArr.push(playerInfoObj);
     
     saveScores();
 
     scoreIdCounter++
-}
+};
 
 var saveScores = function(){
     localStorage.setItem("highscoreArr", JSON.stringify(highscoreArr));
