@@ -18,6 +18,10 @@ header {
     padding: 20px;
     margin: 20px 40px;
     font-size: 20px;
+    color: darkorchid;
+}
+.highscores:hover {
+    color: rgb(126, 26, 175);
 }
 
 .timer {
@@ -147,9 +151,4 @@ header {
 #highscore-page {
     display: none;
 }
-/* 
-#quiz-start {
-    display: none;
-}    
 
-     */

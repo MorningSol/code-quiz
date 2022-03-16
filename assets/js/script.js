@@ -1,4 +1,5 @@
 var startButtonEl = document.querySelector("#start-btn");
+var viewHighscoreEl = document.querySelector("#highscore")
 var timerEl = document.querySelector("#timer-time");
 var quizStartSection = document.querySelector("#quiz-start");
 var question1El = document.querySelector("#question1");
@@ -72,6 +73,10 @@ var taskButtonHandler = function(event){
     if (choiceEl.matches(".clear")){
         deleteScores();
     };
+    if (choiceEl.matches(".view-highscore")){
+        highscorePageEl.style.display = "flex";
+        quizStartSection.style.display = "none";
+    };
     
 };
 
@@ -96,7 +101,12 @@ var startQuiz = function() {
    
     quizStartSection.style.display = "none";
     question1El.style.display = "flex";
-    x = 0;
+    questionProgression = 0;
+
+    for (var i = 0; i < answerFeedback.length; i++){
+        answerFeedback[i].textContent = "";
+    };
+    
     countdown()
 };
 
@@ -166,7 +176,6 @@ var loadScores = function(){
     for (var i = 0; i < scoresLoaded.length; i++) {
         createScoreInfoEl(scoresLoaded[i]);
     };
-
 };
 
 var deleteScores = function(){
@@ -187,4 +196,5 @@ buttonQuestion3El.addEventListener("click", taskButtonHandler);
 buttonQuestion4El.addEventListener("click", taskButtonHandler);
 quizResultsEl.addEventListener("submit",scoreInfoHandler);
 highscorePageEl.addEventListener("click",taskButtonHandler);
+viewHighscoreEl.addEventListener("click", taskButtonHandler);
 loadScores();
