@@ -77,8 +77,7 @@ var taskButtonHandler = function(event){
     if (choiceEl.matches(".view-highscore")){
         highscorePageEl.style.display = "flex";
         quizStartSection.style.display = "none";
-    };
-    
+    };   
 };
 
 
