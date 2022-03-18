@@ -48,7 +48,7 @@ var nextQuestion = function() {
         quizResultsEl.style.display = "flex";
         clearInterval(timerInterval)
         postScoreEl.textContent = timerEl.textContent;
-        currentScore = timerEl.textContent   
+        currentScore = timerEl.textContent; 
     };             
 };
 
@@ -152,13 +152,15 @@ createScoreInfoEl = function(playerInfoObj){
     scoreListItem.className = "list-item";
     scoreListItem.innerHTML = playerInfoObj.initials + " - " + playerInfoObj.score
     scoreSheet.appendChild(scoreListItem);
+    
+    sortList();
 
     playerInfoObj.id = scoreIdCounter;
     
     highscoreArr.push(playerInfoObj);
-    
+   
     saveScores();
-
+    
     scoreIdCounter++
 };
 
@@ -188,6 +190,32 @@ var deleteScores = function(){
     };
     highscoreArr=[];
     saveScores();
+};
+
+
+var sortList = function() {
+    var list, i, switching, b, shouldSwitch;
+    list = document.getElementById("score-sheet");
+    switching = true;
+
+    while (switching) {
+        switching = false;
+        b = list.getElementsByTagName("LI");
+        for (i = 0; i < (b.length - 1); i++) {
+            shouldSwitch = false;
+
+            if (Number(b[i +1].innerHTML.slice(-2)) > Number(b[i].innerHTML.slice(-2))) {
+                shouldSwitch = true;
+                break;
+            }
+        } 
+
+        if (shouldSwitch) {
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+        }  
+
+    };
 };
 
 
