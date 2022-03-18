@@ -1,7 +1,5 @@
 # 04 Web APIs: Code Quiz
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. For this challenge, you will build a timed code quiz that's made up of multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
-
 ## User Story
 
 ```
@@ -25,18 +23,17 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 ```
+&nbsp;
 
-The following animation demonstrates the application functionality:
+## Links:
 
-![Demonstration of the Coding Quiz Challenge.](./Assets/images/04-web-apis-homework-demo.gif)
+* https://morningsol.github.io/code-quiz/
 
-### Review
+* https://github.com/MorningSol/code-quiz
 
-You are required to submit the following for review:
+&nbsp;
 
-* The URL of the functional, deployed application.
+The following image demonstrates all sections of the quiz:
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
----
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+&nbsp;
+![All quiz pages displayed](./assets/images/screencapture-file-C-Users-Pat-Desktop-Challenges-Challenge-week4-code-quiz-index-html-2022-03-17-21_04_08.png)
