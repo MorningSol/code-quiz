@@ -11,7 +11,7 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 90px;
+    margin-bottom: 60px;
 }
 
 .highscores {
@@ -102,6 +102,7 @@ header {
 
 .player-info input {
   padding: 10px;
+  margin: 10px;
   font-size: 2rem;
   border-radius: 15px;
 }
@@ -174,12 +175,13 @@ header {
         width: 90%;
         margin: 30px;   
     }
-
 }
+
 @media screen and (max-width: 597px) {
     .quiz-box {
         width: 100%;
-        margin: 30px;   
+        margin: 30px;
+        justify-content: center;  
     }
     .text-align{
         text-align: center;
@@ -190,9 +192,15 @@ header {
     }
     .btn{
         text-align: center;  
+        font-size: 25px;
+        padding: 10px 20px;
+        margin: 8px;
+    }
+    .button-selection{
+        margin: 5px;
     }
     header {
-        margin-bottom: 60px;
+        margin-bottom: 0px;
     }
     .timer{
         margin: 10px 10px 10px 5px;
@@ -203,7 +211,11 @@ header {
         padding: 10px 5px 10px 10px;
     }
     .question{
-        padding: 20px 0px;
+        padding: 20px 10px;
         font-size: 40px;
+    }  
+    .player-info{
+        padding: 10px;
     }
+        
 }
